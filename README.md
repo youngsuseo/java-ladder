@@ -7,3 +7,19 @@
 
 ## 온라인 코드 리뷰 과정
 * [텍스트와 이미지로 살펴보는 온라인 코드 리뷰 과정](https://github.com/nextstep-step/nextstep-docs/tree/master/codereview)
+
+## 기능 요구 사항
+1. 입력 : 사람, 사다리 높이 입력
+    1. 사람 이름 , 구분자로 나눔
+    2. 다섯글자 이하 입력가능
+        1. 출력시 빈값 추가하여 5글자 맞추고 출력
+    3. 사다리 높이에 따라 Map 생성 -> x
+        1. 사다리 높이에 따라 list 생성
+        2. player 수 -1 
+        -> 입력받은 사람수 -1, 사다리 높이 에 맞춰 list 생
+2. 로직 : map 의 value 값으로 list를 가진다 : X
+    1. list(가로선)의 값은 boolean으로 가지며 1이면 있고  0이면 가로 선이 없다.
+    2. 생성되는 기준은 이전의 리스트 요소가 true면 무조건 false 이고, false 일 경우,  random으로 true 
+3. 출력 : 사다리 출력 ¬
+    1. Map 의 size 만큼 | 생성
+    2. Map 의 value 리스트의 값이 true 면 -, false 면 아무것도 출력하지 않는다.
