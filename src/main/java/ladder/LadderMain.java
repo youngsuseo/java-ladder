@@ -14,10 +14,9 @@ public class LadderMain {
         int maxLadderHeight = InputView.inputMaxLadderHeight();
 
         Players players = Players.create(names);
-        ResultView.printResultPlayer(players.toString());
+        ResultView.printResultPlayer(players);
 
-        Ladder ladder = new Ladder();
-        List<HorizontalLines> horizontalLines = ladder.create(players.countOfPlayers(), maxLadderHeight);
+        List<HorizontalLines> horizontalLines = Ladder.create(players.countOfPlayers(), maxLadderHeight);
         ResultView.printResult(horizontalLines);
     }
 }
