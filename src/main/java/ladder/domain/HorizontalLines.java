@@ -19,32 +19,13 @@ public class HorizontalLines {
         this.horizontalLines = horizontalLines;
     }
 
-    public void connect(int countOfLines) {
-        for (int index = 0; index < countOfLines; index++) {
-            if (connectable(index)) {
+    public void connect(int countOfLines, ConnectingStrategy connectingStrategy) {
+        for (int i = 0; i < countOfLines; i++) {
+            if (isFirstOrConnectableLine(i)) {
+                horizontalLines.add(connectingStrategy.connectable());
                 continue;
             }
             horizontalLines.add(DEFAULT_VALUE);
-        }
-    }
-
-    private boolean connectable(int index) {
-        if (isFirstOrConnectableLine(index)) {
-            randomlyConnectable();
-            return true;
-        }
-        return false;
-    }
-
-    private void randomlyConnectable() {
-        if (random.nextBoolean()) {
-            horizontalLines.add(true);
-        }
-    }
-
-    private void connect(boolean connectable) {
-        if (connectable) {
-            horizontalLines.add(true);
         }
     }
 
