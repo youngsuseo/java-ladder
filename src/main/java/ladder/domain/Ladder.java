@@ -14,7 +14,7 @@ public class Ladder {
         create(connectingStrategy);
     }
 
-    public void create(ConnectingStrategy connectingStrategy) {
+    private void create(ConnectingStrategy connectingStrategy) {
         verticalLines = new ArrayList<>();
         for (int index = 0; index < numberOfMoves; index++) {
             HorizontalLines horizontalLines = new HorizontalLines();

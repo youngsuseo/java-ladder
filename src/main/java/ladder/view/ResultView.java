@@ -1,7 +1,7 @@
 package ladder.view;
 
 import ladder.domain.HorizontalLines;
-import ladder.domain.Name;
+import ladder.domain.PlayerName;
 import ladder.domain.Players;
 
 import java.util.List;
@@ -10,7 +10,7 @@ public class ResultView {
 
     public static void printResultPlayer(Players players) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Name playerName : players.getPlayers().keySet()) {
+        for (PlayerName playerName : players.getPlayers().keySet()) {
             stringBuilder.append(playerName).append(" ");
         }
         System.out.println("실행 결과\n\n" + stringBuilder.toString());

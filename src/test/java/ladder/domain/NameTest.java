@@ -11,7 +11,7 @@ public class NameTest {
     @ParameterizedTest
     @ValueSource(strings = {"", "   "})
     void create_inputBlank(String names) {
-        assertThatIllegalArgumentException().isThrownBy(() -> new Name(names))
+        assertThatIllegalArgumentException().isThrownBy(() -> new PlayerName(names))
                 .withMessageContaining("이름은 빈 값을 입력 할 수 없습니다.");
     }
 
@@ -19,7 +19,7 @@ public class NameTest {
     @ParameterizedTest
     @ValueSource(strings = "user12345, user2")
     void create_invalidUserName(String names) {
-        assertThatIllegalArgumentException().isThrownBy(() -> new Name(names))
+        assertThatIllegalArgumentException().isThrownBy(() -> new PlayerName(names))
                 .withMessageContaining("이름은 1 ~ 5 글자만 허용됩니다.");
     }
 }
