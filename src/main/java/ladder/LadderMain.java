@@ -22,13 +22,15 @@ public class LadderMain {
         Prizes prizes = new Prizes(winningPrizes);
         Players result = prizes.resultPrize(players, ladder);
 
-        String chosen = InputView.inputWhoWantToSeeResult();
-        InputView.printResultOfChosenPlayer(getResult(result, chosen));
+        for (int i = 0; i < result.countOfPlayers(); i++) {
+            String chosen = InputView.inputWhoWantToSeeResult();
+            InputView.printResultOfChosenPlayer(getResult(result, chosen));
+        }
     }
 
     private static String getResult(Players result, String chosen) {
         if ("all".equals(chosen)) {
-            return result.toString();
+            return ResultView.allPlayerResult(result);
         }
         return result.getPlayers().get(new PlayerName(chosen));
     }

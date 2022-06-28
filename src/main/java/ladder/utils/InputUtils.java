@@ -13,4 +13,9 @@ public class InputUtils {
         System.out.println(inputText);
         return scanner.nextLine();
     }
+
+    public static String scanNext(String inputText) {
+        System.out.println(inputText);
+        return scanner.next();
+    }
 }

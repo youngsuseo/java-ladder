@@ -5,6 +5,7 @@ import ladder.domain.PlayerName;
 import ladder.domain.Players;
 
 import java.util.List;
+import java.util.Map;
 
 public class ResultView {
 
@@ -35,5 +36,14 @@ public class ResultView {
             stringBuilder.append("      ");
         }
         stringBuilder.append("|\n");
+    }
+
+    public static String allPlayerResult(Players players) {
+        StringBuilder stringBuilder = new StringBuilder();
+        Map<PlayerName, String> playerMap = players.getPlayers();
+        for (PlayerName playerName : playerMap.keySet()) {
+            stringBuilder.append(playerName).append(" : ").append(playerMap.get(playerName)).append("\n");
+        }
+        return stringBuilder.toString();
     }
 }
