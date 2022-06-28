@@ -15,7 +15,7 @@ public class HorizontalLinesTest {
     @ValueSource(ints = 5)
     void connect(int lines) {
         HorizontalLines horizontalLines = new HorizontalLines();
-        ConnectingStrategy connectingStrategy = new SequentialConnectionStratrgy();
+        ConnectingStrategy connectingStrategy = new SequentialConnectionStrategy();
         horizontalLines.connect(lines, connectingStrategy);
 
         List<Boolean> horizontalLineList = horizontalLines.getHorizontalLines();

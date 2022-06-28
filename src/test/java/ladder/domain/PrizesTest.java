@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PrizesTest {
 
@@ -21,7 +20,7 @@ class PrizesTest {
         Players players = new Players("user1, user2, user3, user4");
         List<String> arrayList = Arrays.asList("a", "b", "c", "d");
         Prizes prizes = new Prizes(arrayList);
-        Ladder ladder = new Ladder(4, 5, new SequentialConnectionStratrgy()); // countOfPerson -> player로?
+        Ladder ladder = new Ladder(4, 5, new SequentialConnectionStrategy()); // countOfPerson -> player로?
 
         Players result = prizes.resultPrize(players, ladder);
 

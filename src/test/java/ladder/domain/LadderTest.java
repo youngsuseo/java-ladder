@@ -4,8 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LadderTest {
@@ -14,7 +12,7 @@ public class LadderTest {
     @ParameterizedTest
     @CsvSource(value = {"4:5:5"}, delimiter = ':')
     void create(int countOfPerson, int numberOfMoves, int expected) {
-        ConnectingStrategy connectingStrategy = new SequentialConnectionStratrgy();
+        ConnectingStrategy connectingStrategy = new SequentialConnectionStrategy();
         Ladder ladder = new Ladder(countOfPerson, numberOfMoves, connectingStrategy);
         assertThat(ladder.getVerticalLines()).hasSize(expected);
     }

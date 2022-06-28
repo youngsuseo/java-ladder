@@ -1,9 +1,11 @@
 package ladder.domain;
 
+import ladder.engine.LadderCreator;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ladder {
+public class Ladder implements LadderCreator {
     private int countOfPerson;
     private int numberOfMoves;
     private List<HorizontalLines> verticalLines;

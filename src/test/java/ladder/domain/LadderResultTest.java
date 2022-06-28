@@ -13,7 +13,7 @@ public class LadderResultTest {
 //    @Test
 //    void result() {
 //        Players players = new Players("user1, user2, user3");
-//        Ladder ladder = new Ladder(3, 5, new SequentialConnectionStratrgy());
+//        Ladder ladder = new Ladder(3, 5, new SequentialConnectionStrategy());
 //
 //        Players result = LadderResult.result(players,ladder);
 //        assertThat(result).isNotNull();
@@ -24,7 +24,7 @@ public class LadderResultTest {
 //        Players players = new Players("user1, user2, user3, user4");
 //        List<String> arrayList = Arrays.asList("a", "b", "C", "d");
 //        Prizes prizes = new Prizes(arrayList);
-//        Ladder ladder = new Ladder(4, 5, new SequentialConnectionStratrgy()); // countOfPerson -> player로?
+//        Ladder ladder = new Ladder(4, 5, new SequentialConnectionStrategy()); // countOfPerson -> player로?
 //
 //        Players result = LadderResult.resultPrize(players, prizes, ladder);
 //
