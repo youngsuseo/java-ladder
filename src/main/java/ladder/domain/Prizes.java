@@ -30,10 +30,10 @@ public class Prizes {
 
     public Players resultPrize(Players players, Ladder ladder) {
         String temp;
-        for (int i = ladder.getVerticalLines().size() - 1; i >= 0; i--) {
-            HorizontalLines horizontalLines = ladder.getVerticalLines().get(i);
-            for (int j = 0; j < horizontalLines.getHorizontalLines().size(); j++) {
-                if (horizontalLines.getHorizontalLines().get(j)) {
+        for (int i = ladder.getLines().size() - 1; i >= 0; i--) {
+            HorizontalLines horizontalLines = (HorizontalLines) ladder.getLines().get(i);
+            for (int j = 0; j < horizontalLines.getConnectingLines().size(); j++) {
+                if (horizontalLines.getConnectingLines().get(j)) {
                     temp = prizes.get(j);
                     prizes.set(j, prizes.get(j + 1));
                     prizes.set(j + 1, temp);

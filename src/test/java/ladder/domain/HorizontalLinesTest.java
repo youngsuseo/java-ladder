@@ -14,11 +14,9 @@ public class HorizontalLinesTest {
     @ParameterizedTest
     @ValueSource(ints = 5)
     void connect(int lines) {
-        HorizontalLines horizontalLines = new HorizontalLines();
-        ConnectingStrategy connectingStrategy = new SequentialConnectionStrategy();
-        horizontalLines.connect(lines, connectingStrategy);
+        HorizontalLines horizontalLines = new HorizontalLines(lines, new SequentialConnectionStrategy());
 
-        List<Boolean> horizontalLineList = horizontalLines.getHorizontalLines();
+        List<Boolean> horizontalLineList = horizontalLines.getConnectingLines();
         for (int i = 0; i < horizontalLineList.size(); i++) {
             if (i % 2 == 0) {
                 assertThat(horizontalLineList.get(i)).isTrue();

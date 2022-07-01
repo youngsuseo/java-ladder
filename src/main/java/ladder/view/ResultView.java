@@ -1,8 +1,8 @@
 package ladder.view;
 
-import ladder.domain.HorizontalLines;
 import ladder.domain.PlayerName;
 import ladder.domain.Players;
+import ladder.engine.LineCreator;
 
 import java.util.List;
 import java.util.Map;
@@ -18,18 +18,18 @@ public class ResultView {
 
     }
 
-    public static void printResult(List<HorizontalLines> horizontalLinesList) {
+    public static void printResult(List<? extends LineCreator> LineCreators) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (HorizontalLines horizontalLines : horizontalLinesList) {
-            printLines(stringBuilder, horizontalLines);
+        for (LineCreator lineCreator : LineCreators) {
+            printLines(stringBuilder, lineCreator);
         }
         System.out.println(stringBuilder.toString());
     }
 
-    private static void printLines(StringBuilder stringBuilder, HorizontalLines horizontalLines) {
-        for (Boolean horizontalLine : horizontalLines.getHorizontalLines()) {
+    private static void printLines(StringBuilder stringBuilder, LineCreator lineCreator) {
+        for (Boolean connectingLines : lineCreator.getConnectingLines()) {
             stringBuilder.append("|");
-            if (horizontalLine) {
+            if (connectingLines) {
                 stringBuilder.append("------");
                 continue;
             }
