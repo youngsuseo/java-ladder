@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class PlayerName {
     private static final int MINIMUM_NAME_LENGTH = 1;
-    private static final int MAXIMUM_NAME_LENGTH = 6;
+    private static final int MAXIMUM_NAME_LENGTH = 5;
 
     private final String playerName;
 
@@ -14,7 +14,7 @@ public class PlayerName {
         }
 
         if (playerName.length() < MINIMUM_NAME_LENGTH  || playerName.length() > MAXIMUM_NAME_LENGTH) {
-            throw new IllegalArgumentException("이름은 1 ~ 5 글자만 허용됩니다.");
+            throw new IllegalArgumentException("이름은 " + MINIMUM_NAME_LENGTH + " ~ " + MAXIMUM_NAME_LENGTH + " 글자만 허용됩니다.");
         }
 
         this.playerName = playerName;

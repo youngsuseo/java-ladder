@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
-public class NameTest {
+class NameTest {
     @DisplayName("입력한 사용자의 이름이 null 일 수 없다.")
     @ParameterizedTest
     @ValueSource(strings = {"", "   "})

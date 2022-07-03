@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public class ResultView {
-
     public static void printResultPlayer(Players players) {
         StringBuilder stringBuilder = new StringBuilder();
         for (PlayerName playerName : players.getPlayers().keySet()) {

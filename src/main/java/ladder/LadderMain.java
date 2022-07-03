@@ -1,6 +1,8 @@
 package ladder;
 
 import ladder.domain.*;
+import ladder.engine.LadderCreator;
+import ladder.engine.LadderResult;
 import ladder.factory.LadderFactory;
 import ladder.view.InputView;
 import ladder.view.ResultView;
@@ -16,12 +18,11 @@ public class LadderMain {
         Players players = new Players(playerNames);
         ResultView.printResultPlayer(players);
 
-        ConnectingStrategy connectingStrategy = new RandomConnectingStrategy();
-        Ladder ladder = (Ladder) LadderFactory.create(maxLadderHeight, players.countOfPlayers(), connectingStrategy);
-        ResultView.printResult(ladder.getLines());
+        LadderCreator ladderCreator = LadderFactory.create(maxLadderHeight, players.countOfPlayers(), new RandomConnectingStrategy());
+        ResultView.printResult(ladderCreator.getLines());
 
-        Prizes prizes = new Prizes(winningPrizes);
-        Players result = prizes.resultPrize(players, ladder);
+        LadderResult ladderResult = new LadderPrizes(winningPrizes);
+        Players result = ladderResult.result(players, ladderCreator);
 
         for (int i = 0; i < result.countOfPlayers(); i++) {
             String chosen = InputView.inputWhoWantToSeeResult();

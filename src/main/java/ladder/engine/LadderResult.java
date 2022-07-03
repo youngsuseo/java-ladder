@@ -1,5 +1,7 @@
 package ladder.engine;
 
-public interface LadderResult {
+import ladder.domain.Players;
 
+public interface LadderResult {
+    Players result(Players players, LadderCreator ladderCreator);
 }
