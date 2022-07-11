@@ -35,4 +35,12 @@ public class Point {
     public Point last() {
         return new Point(this.right, false);
     }
+
+    public boolean isLeft() {
+        return left;
+    }
+
+    public boolean isRight() {
+        return right;
+    }
 }

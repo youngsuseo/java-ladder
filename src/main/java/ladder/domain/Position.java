@@ -26,7 +26,18 @@ public class Position {
         return new Position(++index, point.next(right));
     }
 
+    public Position next(ConnectingStrategy connectingStrategy) {
+        if (connectable()) {
+            return new Position(++index, point.next(connectingStrategy.connectable()));
+        }
+        return new Position(++index, point.next(false));
+    }
+
     public Position last() {
         return new Position(++index, point.last());
+    }
+
+    public boolean connectable() {
+        return !point.isRight();
     }
 }
