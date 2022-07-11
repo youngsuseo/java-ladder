@@ -4,7 +4,7 @@ public class Position {
     private int index;
     private Point point;
 
-    public Position(int index, Point point) {
+    private Position(int index, Point point) {
         this.index = index;
         this.point = point;
     }
@@ -22,8 +22,11 @@ public class Position {
         }
     }
 
+    public Position next(boolean right) {
+        return new Position(++index, point.next(right));
+    }
 
-    public Position next() {
-        return new Position(index, this.point.next());
+    public Position last() {
+        return new Position(++index, point.last());
     }
 }
