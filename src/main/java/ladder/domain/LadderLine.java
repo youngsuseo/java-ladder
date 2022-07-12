@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LadderLine implements LineCreator {
     private final int countOfLines;
-    private final List<Position> positions;
+    private final List<Position> positions; // FIXME 일급컬렉션
 
     public LadderLine(int countOfLines) {
         this(countOfLines, new ArrayList<>());

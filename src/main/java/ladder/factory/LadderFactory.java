@@ -2,6 +2,7 @@ package ladder.factory;
 
 import ladder.domain.ConnectingStrategy;
 import ladder.domain.Ladder;
+import ladder.domain.LadderGame;
 import ladder.domain.LadderLine;
 import ladder.engine.LadderCreator;
 import ladder.engine.LineCreator;
@@ -15,6 +16,6 @@ public class LadderFactory {
         for (int i = 0; i < maxLadderHeight; i++) {
              lineCreators.add(new LadderLine(countOfPlayers - 1));
         }
-        return new Ladder(lineCreators, connectingStrategy);
+        return new LadderGame(lineCreators, connectingStrategy);
     }
 }
