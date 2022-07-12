@@ -27,9 +27,9 @@ public class LadderLine implements LineCreator {
     public void connect(ConnectingStrategy connectingStrategy) {
         Position position = Position.first(connectingStrategy.connectable());
         positions.add(position);
-        for (int i = 1; i < countOfLines - 1; i++) {
-//            connectLine(connectingStrategy, position);
-            positions.add(position.next(connectingStrategy));
+        for (int i = 1; i < countOfLines - 1; i++) { // FIXME 변경
+           position = position.next(connectingStrategy);
+           positions.add(position);
         }
         positions.add(position.last());
     }
