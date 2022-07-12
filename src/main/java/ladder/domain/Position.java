@@ -40,4 +40,8 @@ public class Position {
     public boolean connectable() {
         return !point.isRight();
     }
+
+    public boolean movable() {
+        return point.isRight();
+    }
 }

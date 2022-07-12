@@ -33,12 +33,12 @@ class HorizontalLinesTest {
         LadderLine ladderLine = new LadderLine(lines, new SequentialConnectionStrategy());
         List<Boolean> ladderLines = ladderLine.getConnectingLines();
 
-//        assertAll(
-//                () -> assertThat(horizontalLineList.get(0)).isTrue(),
-//                () -> assertThat(horizontalLineList.get(1)).isFalse(),
-//                () -> assertThat(horizontalLineList.get(2)).isTrue(),
-//                () -> assertThat(horizontalLineList.get(3)).isFalse(),
-//                () -> assertThat(horizontalLineList.get(4)).isTrue()
-//        );
+        assertAll(
+                () -> assertThat(ladderLines.get(0)).isTrue(),
+                () -> assertThat(ladderLines.get(1)).isFalse(),
+                () -> assertThat(ladderLines.get(2)).isTrue(),
+                () -> assertThat(ladderLines.get(3)).isFalse(),
+                () -> assertThat(ladderLines.get(4)).isTrue()
+        );
     }
 }
