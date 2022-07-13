@@ -20,12 +20,12 @@ public class Position {
             case LEFT : return --index;
             case RIGHT: return ++index;
             case PASS : return index;
-            default   : return index; // TODO
+            default   : return index;
         }
     }
 
     public Position next(boolean right) {
-        return new Position(index + 1, point.next(right)); // TODO ++index, index + 1 의 차이 / 깊은 복사 얕은 복사
+        return new Position(index + 1, point.next(right));
     }
 
     public Position next(ConnectingStrategy connectingStrategy) {
@@ -45,9 +45,5 @@ public class Position {
 
     public boolean movable() {
         return point.isRight();
-    }
-
-    public int getIndex() {
-        return index;
     }
 }

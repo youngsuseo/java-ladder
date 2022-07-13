@@ -8,7 +8,6 @@ public class Point {
         if (left && right) {
             throw new IllegalArgumentException("양쪽에 사다리 선이 생성될 수 없습니다.");
         }
-
         this.left = left;
         this.right = right;
     }
@@ -34,10 +33,6 @@ public class Point {
 
     public Point last() {
         return new Point(this.right, false);
-    }
-
-    public boolean isLeft() {
-        return left;
     }
 
     public boolean isRight() {

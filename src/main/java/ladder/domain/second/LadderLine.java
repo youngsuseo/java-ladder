@@ -21,8 +21,7 @@ public class LadderLine implements LineCreator {
     }
 
     public LadderLine(int countOfLines, List<Position> positions) {
-        this.countOfLines = countOfLines;
-        this.positions = new Positions(positions);
+        this(countOfLines, new Positions(positions));
     }
 
     public LadderLine(int countOfLines, Positions positions) {

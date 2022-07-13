@@ -16,8 +16,7 @@ class LadderFactoryTest {
     @ParameterizedTest
     @CsvSource(value = "4:3", delimiter = ':')
     void create(int heightOfLadder, int countOfLines) {
-        Ladder ladder = (Ladder) LadderFactory.create(heightOfLadder, countOfLines, new SequentialConnectionStrategy()); // TODO 마찬가지로 구현체 변경
-
+        Ladder ladder = (Ladder) LadderFactory.create(heightOfLadder, countOfLines, new SequentialConnectionStrategy());
         List<HorizontalLines> verticalLines = ladder.getLines();
         assertThat(verticalLines).hasSize(heightOfLadder);
     }
