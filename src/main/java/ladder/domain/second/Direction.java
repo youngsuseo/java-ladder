@@ -1,8 +1,7 @@
-package ladder.domain;
+package ladder.domain.second;
 
 public enum Direction {
     RIGHT,
     LEFT,
-    PASS;
-
+    PASS
 }

@@ -1,5 +1,8 @@
-package ladder.domain;
+package ladder.domain.first;
 
+import ladder.domain.PlayerName;
+import ladder.domain.Players;
+import ladder.domain.SequentialConnectionStrategy;
 import ladder.engine.LadderCreator;
 import ladder.factory.LadderFactory;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,6 +24,7 @@ class LadderPrizesTest {
         players = new Players("user1, user2, user3, user4");
         ladderPrizes = new LadderPrizes(Arrays.asList("a", "b", "c", "d"));
         ladderCreator = LadderFactory.create(5, 4, new SequentialConnectionStrategy());
+        // TODO create 할 때 구현체가 달라져 다른 결과가 나오는데 이럴 때 어떻게 두는지?
     }
 
     @DisplayName("사다리 게임 결과 출력 확인")

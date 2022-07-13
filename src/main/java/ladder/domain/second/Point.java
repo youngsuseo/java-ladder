@@ -1,4 +1,4 @@
-package ladder.domain;
+package ladder.domain.second;
 
 public class Point {
     private boolean left;

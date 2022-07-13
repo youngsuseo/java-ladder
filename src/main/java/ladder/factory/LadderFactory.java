@@ -1,9 +1,8 @@
 package ladder.factory;
 
 import ladder.domain.ConnectingStrategy;
-import ladder.domain.Ladder;
-import ladder.domain.LadderGame;
-import ladder.domain.LadderLine;
+import ladder.domain.second.LadderGame;
+import ladder.domain.second.LadderLine;
 import ladder.engine.LadderCreator;
 import ladder.engine.LineCreator;
 

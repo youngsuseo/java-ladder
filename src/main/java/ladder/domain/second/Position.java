@@ -1,4 +1,6 @@
-package ladder.domain;
+package ladder.domain.second;
+
+import ladder.domain.ConnectingStrategy;
 
 public class Position {
     private int index;
@@ -23,7 +25,7 @@ public class Position {
     }
 
     public Position next(boolean right) {
-        return new Position(index + 1, point.next(right)); // FIXME ++index, index + 1 의 차이 / 깊은 복사 얕은 복사
+        return new Position(index + 1, point.next(right)); // TODO ++index, index + 1 의 차이 / 깊은 복사 얕은 복사
     }
 
     public Position next(ConnectingStrategy connectingStrategy) {

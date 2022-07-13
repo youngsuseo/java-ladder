@@ -1,6 +1,7 @@
 package ladder;
 
 import ladder.domain.*;
+import ladder.domain.second.LadderGameResult;
 import ladder.engine.LadderCreator;
 import ladder.engine.LadderResult;
 import ladder.factory.LadderFactory;

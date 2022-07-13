@@ -1,5 +1,7 @@
-package ladder.domain;
+package ladder.domain.second;
 
+import ladder.domain.ConnectingStrategy;
+import ladder.domain.Positions;
 import ladder.engine.LineCreator;
 
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ import java.util.List;
 
 public class LadderLine implements LineCreator {
     private final int countOfLines;
-    private final List<Position> positions; // FIXME 일급컬렉션
+    private final Positions positions;
 
     public LadderLine(int countOfLines) {
         this(countOfLines, new ArrayList<>());
@@ -20,6 +22,11 @@ public class LadderLine implements LineCreator {
 
     public LadderLine(int countOfLines, List<Position> positions) {
         this.countOfLines = countOfLines;
+        this.positions = new Positions(positions);
+    }
+
+    public LadderLine(int countOfLines, Positions positions) {
+        this.countOfLines = countOfLines;
         this.positions = positions;
     }
 
@@ -29,19 +36,19 @@ public class LadderLine implements LineCreator {
 
     @Override
     public void connect(ConnectingStrategy connectingStrategy) {
-        Position position = initFirst(connectingStrategy);
-        position = getPosition(connectingStrategy, position);
+        Position position = firstPosition(connectingStrategy);
+        position = middlePosition(connectingStrategy, position);
         positions.add(position.last());
     }
 
-    private Position initFirst(ConnectingStrategy connectingStrategy) {
+    private Position firstPosition(ConnectingStrategy connectingStrategy) {
         Position position = Position.first(connectingStrategy.connectable());
         positions.add(position);
         return position;
     }
 
-    private Position getPosition(ConnectingStrategy connectingStrategy, Position position) {
-        for (int i = 1; i < countOfLines - 1; i++) { // FIXME 변경
+    private Position middlePosition(ConnectingStrategy connectingStrategy, Position position) {
+        for (int i = 1; i < countOfLines; i++) {
            position = position.next(connectingStrategy);
            positions.add(position);
         }
@@ -51,14 +58,10 @@ public class LadderLine implements LineCreator {
     @Override
     public List<Boolean> getConnectingLines() {
         List<Boolean> lines = new ArrayList<>();
-        for (Position position : positions) {
+        for (Position position : positions.getPositionList()) {
             lines.add(position.movable());
         }
         lines.remove(lines.size() - 1);
         return lines;
-    }
-
-    public List<Position> getPositions() {
-        return positions;
     }
 }
