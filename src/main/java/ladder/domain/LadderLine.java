@@ -29,13 +29,23 @@ public class LadderLine implements LineCreator {
 
     @Override
     public void connect(ConnectingStrategy connectingStrategy) {
+        Position position = initFirst(connectingStrategy);
+        position = getPosition(connectingStrategy, position);
+        positions.add(position.last());
+    }
+
+    private Position initFirst(ConnectingStrategy connectingStrategy) {
         Position position = Position.first(connectingStrategy.connectable());
         positions.add(position);
-        for (int i = 1; i < countOfLines; i++) { // FIXME 변경
+        return position;
+    }
+
+    private Position getPosition(ConnectingStrategy connectingStrategy, Position position) {
+        for (int i = 1; i < countOfLines - 1; i++) { // FIXME 변경
            position = position.next(connectingStrategy);
            positions.add(position);
         }
-        positions.add(position.last());
+        return position;
     }
 
     @Override
@@ -46,5 +56,9 @@ public class LadderLine implements LineCreator {
         }
         lines.remove(lines.size() - 1);
         return lines;
+    }
+
+    public List<Position> getPositions() {
+        return positions;
     }
 }

@@ -23,18 +23,18 @@ public class Position {
     }
 
     public Position next(boolean right) {
-        return new Position(++index, point.next(right));
+        return new Position(index + 1, point.next(right)); // FIXME ++index, index + 1 의 차이 / 깊은 복사 얕은 복사
     }
 
     public Position next(ConnectingStrategy connectingStrategy) {
         if (connectable()) {
-            return new Position(++index, point.next(connectingStrategy.connectable()));
+            return new Position(index + 1, point.next(connectingStrategy.connectable()));
         }
-        return new Position(++index, point.next(false));
+        return new Position(index + 1, point.next(false));
     }
 
     public Position last() {
-        return new Position(++index, point.last());
+        return new Position(index + 1, point.last());
     }
 
     public boolean connectable() {
@@ -43,5 +43,9 @@ public class Position {
 
     public boolean movable() {
         return point.isRight();
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

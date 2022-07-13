@@ -4,6 +4,7 @@ import ladder.engine.LadderCreator;
 import ladder.engine.LadderResult;
 import ladder.engine.LineCreator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -33,16 +34,24 @@ public class LadderGameResult implements LadderResult {
     @Override
     public Players result(Players players, LadderCreator ladderCreator) {
         List<? extends LineCreator> lines = ladderCreator.getLines();
-        for (int maxLadderSize = lines.size() - 1; maxLadderSize >= 0; maxLadderSize--) {
-            LadderLine ladderLine = (LadderLine) lines.get(maxLadderSize);
-            changePositionByLine(ladderLine);
+        List<Integer> results = new ArrayList<>();
+        for (LineCreator line : lines) {
+            LadderLine ladderLine = (LadderLine) line;
+            for (int i = 0; i < ladderLine.getPositions().size(); i++) {
+                ladderLine.move(i);
+            }
+
+            for (Position position : ladderLine.getPositions()) {
+                results.add(position.getIndex());
+            }
         }
 
-        int index = 0;
-        Map<PlayerName, String> playerMap = players.getPlayers();
-        for (PlayerName playerName : playerMap.keySet()) {
-            playerMap.put(playerName, results.get(index++));
-        }
+//        int playerIndex = 0;
+//        for (PlayerName playerName : players.getPlayers().keySet()) {
+//            players.getPlayers().put(playerName, )
+//        }
+
+        System.out.println(lines);
 
         return players;
     }
